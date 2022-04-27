@@ -1,0 +1,134 @@
+<!doctype html><!-- 2021 -->
+<html lang="en" class="h-100">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="HKer">
+	<meta name="generator" content="HKer">
+	<link rel="manifest" href="./manifest.json">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="安心回家">
+	<link rel='apple-touch-startup-image' href='./img/icons-512.png'
+		media='(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)' />
+	<link rel="apple-touch-icon" sizes="57x57" href="./img/icons-192.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="./img/icons-192.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="./img/icons-512.png" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>安心回家 Back Home Safe</title>
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Aldrich&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap"
+		rel="stylesheet">
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
+	<link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+	<!-- Begin page content -->
+	<main role="main" class="flex-shrink-0">
+		<div class="container">
+			<div class="home-head">
+				<div id="home-date" class="home-date">2021-12-31, 星期乜</div>
+				<div class="home-title">Record your visit.</div>
+			</div>
+		</div>
+		<div class="home-container">
+			<div class="home-enter-box shadow" onclick="goScan()">
+				<div class="home-enter-box--upper">
+					<img class="home-enter-upper-image" src="./img/home_enter.jpg">
+					<div class="home-enter-text">
+						<div class="home-enter-text1">Enter</div>
+						<div class="home-enter-text2">Scan LeaveHomeSafe QR code to record a visit</div>
+					</div>
+				</div>
+				<div class="home-enter-box--lower">
+					<div class="home-enter-text3">Click here to "Enter"</div>
+					<img class="home-enter-text4" src="./img/icon_arrow_right.png">
+				</div>
+			</div>
+			<div class="sc-cidDSM iWtWdK">
+				<div class="sc-jcFjpl sc-caiLqq jdGBFS jLJwOq"><span class="sc-iUKqMP bNBcgY">Last updated on
+						<!-- --> <span class="sc-iAKWXU hhBvzQ">2022-03-06</span>
+					</span>
+					<div class="sc-jObWnj ddSFPQ"><span class="sc-efQSVx cBDwfZ">0</span><span
+							class="sc-cTAqQK jcCvNe">notification</span></div>
+					<div class="sc-cNKqjZ foStjm">More Details</div>
+				</div>
+				<div class="sc-jcFjpl sc-AjmGg jdGBFS hbZanR"><img width="50%" src="./img/app_assets_icon_vaccine.png"
+						class="sc-khQegj bWNeQD"><span class="sc-hUpaCq kMgFty">Vaccination Record</span></div>
+			</div>
+		</div>
+	</main>
+
+	<div class="sc-iCfMLu hgBsfd sc-gWXbKe fkmnnd">
+		<div class="sc-furwcr gHjUuN">
+			<img class="footer-image" src="./img/app_assets_tabicons_icon_home_selected.png">
+			<div selected="" class="sc-egiyK bmaeCh">Home</div>
+		</div>
+		<div class="sc-furwcr gHjUuN">
+			<img class="footer-image" src="./img/app_assets_tabicons_tab_icon_visit_record.png">
+			<div class="sc-egiyK iDUPji">Visit Records</div>
+		</div>
+		<div class="sc-furwcr gHjUuN">
+			<img class="footer-image" src="./img/app_assets_tabicons_icon_inbox.png">
+			<div class="sc-egiyK iDUPji">Inbox</div>
+		</div>
+		<div class="sc-furwcr gHjUuN">
+			<img class="footer-image" src="./img/app_assets_tabicons_icon_settings.png">
+			<div class="sc-egiyK iDUPji">Settings</div>
+		</div>
+	</div>
+
+</body>
+<script>
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0');
+	var yyyy = today.getFullYear();
+	var weekday = new Array(7)
+	weekday[0] = "Sunday"
+	weekday[1] = "Monday"
+	weekday[2] = "Tuesday"
+	weekday[3] = "Wednesday"
+	weekday[4] = "Thursday"
+	weekday[5] = "Friday"
+	weekday[6] = "Saturday"
+	today = yyyy + '-' + mm + '-' + dd + ', ' + weekday[today.getDay()];
+	document.getElementById("home-date").innerHTML = today;
+
+	function goScan() {
+		location.href = './jo2scan.html';
+	}
+
+	if ('serviceWorker' in navigator) {
+		console.log("Will service worker register?");
+		navigator.serviceWorker.register('service-worker.js').then(function (reg) {
+			console.log("Yes it did.");
+		}).catch(function (err) {
+			console.log("No it didn't.This happened:", err)
+		});
+	}
+</script>
+
+</html>
